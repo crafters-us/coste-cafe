@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///C:/Users/HP/Documents/cafe%20index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costa Cafe | Tea &amp; Coffee</title>
+    <!-- Google Fonts -->
+    <link href="./index_files/css2" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-color: #6F4E37; /* Coffee Brown */
+            --secondary-color: #C19A6B; /* Light Brown */
+            --accent-color: #E6DAC3; /* Cream */
+            --dark-text: #2C2C2C;
+            --light-text: #F9F9F9;
+            --bg-color: #FFFDF9;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: rgba(255, 253, 249, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-text);
+            padding: 0 1rem;
+        }
+
+        #home h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--dark-text);
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- MENU SECTION --- */
+        #menu {
+            background-color: var(--accent-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .menu-card h3 {
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .price {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 10px 10px 0 var(--secondary-color);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        #contact .section-title {
+            color: var(--light-text);
+        }
+
+        #contact .section-title::after {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-family: var(--font-body);
+        }
+
+        form button {
+            cursor: pointer;
+            border: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #221912;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                text-align: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">Costa <span>Cafe</span></div>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="file:///C:/Users/HP/Documents/cafe%20index.html#home">Home</a></li>
+                <li><a href="file:///C:/Users/HP/Documents/cafe%20index.html#menu">Menu</a></li>
+                <li><a href="file:///C:/Users/HP/Documents/cafe%20index.html#about">About</a></li>
+                <li><a href="file:///C:/Users/HP/Documents/cafe%20index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <h1>Brewed with Love</h1>
+        <p>Experience the finest selection of artisan coffees and relaxing teas in town. Your cozy corner for work, study, and connect.</p>
+        <a href="file:///C:/Users/HP/Documents/cafe%20index.html#menu" class="btn">View Menu</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">Our Specials</h2>
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <div class="menu-icon">☕</div>
+                <h3>Signature Espresso</h3>
+                <p>Strong, bold, and rich beans roasted to perfection.</p>
+                <span class="price">$3.50</span>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <div class="menu-icon">🥛</div>
+                <h3>Creamy Latte</h3>
+                <p>Smooth espresso with steamed milk and a dollop of foam.</p>
+                <span class="price">$4.50</span>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <div class="menu-icon">🍵</div>
+                <h3>Matcha Green Tea</h3>
+                <p>Organic Japanese matcha with a hint of vanilla.</p>
+                <span class="price">$5.00</span>
+            </div>
+            <!-- Item 4 -->
+            <div class="menu-card">
+                <div class="menu-icon">🍰</div>
+                <h3>Cheesecake Slice</h3>
+                <p>New York style baked cheesecake.</p>
+                <span class="price">$6.00</span>
+            </div>
+            <!-- Item 5 -->
+            <div class="menu-card">
+                <div class="menu-icon">🥐</div>
+                <h3>Butter Croissant</h3>
+                <p>Flaky, buttery, and freshly baked every morning.</p>
+                <span class="price">$3.00</span>
+            </div>
+            <!-- Item 6 -->
+            <div class="menu-card">
+                <div class="menu-icon">🍫</div>
+                <h3>Mocha Delight</h3>
+                <p>Espresso, chocolate, steamed milk, and whipped cream.</p>
+                <span class="price">$5.00</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Our Story</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="./index_files/photo-1497935586351-b67a49e012bf" alt="Coffee beans">
+            </div>
+            <div class="about-text">
+                <h3>More Than Just A Drink</h3>
+                <p>Founded in 2023, Costa Cafe started with a simple mission: to serve the community the best brew in town. We source our beans ethically and brew our teas with organic leaves.</p>
+                <br>
+                <p>Whether you are looking for a quiet place to read or a lively space to catch up with friends, Costa Cafe is your home away from home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <h4>Address</h4>
+                    <p>123 Coffee Bean Street,<br>New York, NY 10012</p>
+                </div>
+                <div class="info-item">
+                    <h4>Hours</h4>
+                    <p>Mon - Fri: 7:00</p></div></div></div></section></body></html>
